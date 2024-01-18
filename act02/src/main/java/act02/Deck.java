@@ -6,6 +6,7 @@ package act02;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * The Deck class represents a shuffled deck of cards. It provides several
@@ -42,9 +43,9 @@ public class Deck {
         // Implemented in Activity 02
         cards = new ArrayList<>();
 
-        for (String suit : suits) {
-            for (int i = 0; i < ranks.length; i++) {
-                Card c = new Card(ranks[i], suits[i]);
+        for (int i = 0; i < ranks.length; i++) {
+            for (String suit: suits) {
+                Card c = new Card(ranks[i], suit, values[i]);
                 this.cards.add(c);
             }
         }
@@ -84,8 +85,8 @@ public class Deck {
         if (isEmpty()) {
             return null;
         }
-
-        return cards.get(0);
+        return cards.remove(0);
+        
     }
 
     /**

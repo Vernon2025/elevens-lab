@@ -27,16 +27,15 @@ public class Card {
    */
   private int pointValue;
 
-
   /**
    * Creates a new <code>Card</code> instance.
    *
-   * @param cardRank  a <code>String</code> value
-   *                  containing the rank of the card
-   * @param cardSuit  a <code>String</code> value
-   *                  containing the suit of the card
+   * @param cardRank       a <code>String</code> value
+   *                       containing the rank of the card
+   * @param cardSuit       a <code>String</code> value
+   *                       containing the suit of the card
    * @param cardPointValue an <code>int</code> value
-   *                  containing the point value of the card
+   *                       containing the point value of the card
    */
   public Card(String cardRank, String cardSuit, int cardPointValue) {
     // Implemented in Activity 01
@@ -47,9 +46,9 @@ public class Card {
 
   }
 
-
   /**
    * Accesses this <code>Card's</code> suit.
+   * 
    * @return this <code>Card's</code> suit.
    */
   public String getSuit() {
@@ -60,10 +59,11 @@ public class Card {
 
   /**
    * Accesses this <code>Card's</code> rank.
+   * 
    * @return this <code>Card's</code> rank.
    */
   public String getRank() {
-    
+
     // Implemented in Activity 01
 
     return rank;
@@ -71,6 +71,7 @@ public class Card {
 
   /**
    * Accesses this <code>Card's</code> point value.
+   * 
    * @return this <code>Card's</code> point value.
    */
   public int getPointValue() {
@@ -79,26 +80,28 @@ public class Card {
     return pointValue;
   }
 
-  /** Compare this card with the argument.
+  /**
+   * Compare this card with the argument.
+   * 
    * @param otherCard the other card to compare to this
    * @return true if the rank, suit, and point value of this card
-   *              are equal to those of the argument;
+   *         are equal to those of the argument;
    *         false otherwise.
    */
   public boolean matches(Card otherCard) {
     // Implemented in Activity 01
 
-    if (otherCard.getRank().equals(this.getRank()) 
-        && otherCard.getSuit().equals(this.getSuit()) 
+    if (otherCard.getRank().equals(this.getRank())
+        && otherCard.getSuit().equals(this.getSuit())
         && otherCard.getPointValue() == this.getPointValue()) {
-          return true;
+      return true;
     }
     return false;
   }
 
   /**
    * Converts the rank, suit, and point value into a string in the format
-   *     "[Rank] of [Suit] (point value = [PointValue])".
+   * "[Rank] of [Suit] (point value = [PointValue])".
    * This provides a useful way of printing the contents
    * of a <code>Deck</code> in an easily readable format or performing
    * other similar functions.
@@ -108,6 +111,6 @@ public class Card {
    */
   @Override
   public String toString() {
-    return rank+" of "+suit+" (point value = "+pointValue+")";
+    return rank + " of " + suit + " (point value = " + pointValue + ")";
   }
 }
