@@ -20,6 +20,8 @@ public class Shuffler {
 	 */
 	public static int[] perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+                int numCards = values.length;
+                int[] shuffledCards;
 	}
 
 	/**
