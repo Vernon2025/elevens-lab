@@ -21,12 +21,13 @@ public class Shuffler {
     public static int[] perfectShuffle(int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 
-        int numCards = values.length;
-        int[] shuffledCards = new int[numCards];
+        double numCards = values.length;
+        int cards = values.length;
+        int[] shuffledCards = new int[cards];
         int temp = 0;
         int mid = (int) Math.ceil(numCards/2);
 
-        for (int i = 0; i < mid; i++) {
+        for (int i = 0; i < mid-1; i++) {
             shuffledCards[temp] = values[i];
             shuffledCards[temp+1] = values[i+mid];
             temp = temp + 2;
