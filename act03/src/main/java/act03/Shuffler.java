@@ -4,6 +4,8 @@
  */
 package act03;
 
+import java.util.Random;
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -19,30 +21,31 @@ public class Shuffler {
      * @return the shuffled array
      */
     public static int[] perfectShuffle(int[] values) {
-    double numCards = values.length;
-    int cards = values.length;
-    int[] shuffledCards = new int[cards];
-    int temp = 0;
-    int mid = (int) Math.ceil(numCards / 2);
-
-    if ((cards % 2) == 0) {
-        for (int i = 0; i < mid; i++) {
-            shuffledCards[temp] = values[i];
-            shuffledCards[temp + 1] = values[i + mid];
-            temp = temp + 2;
+        int cards = values.length;
+        int[] shuffledCards = new int[cards];
+        int temp = 0;
+        int mid = cards / 2;
+    
+        if ((cards % 2) == 0) {
+            for (int i = 0; i < mid; i++) {
+                shuffledCards[temp] = values[i];
+                shuffledCards[temp + 1] = values[i + mid];
+                temp = temp + 2;
+            }
+        } else {
+            for (int i = 0; i < mid; i++) {
+                shuffledCards[temp] = values[i];
+                shuffledCards[temp + 1] = values[i + mid + 1];
+                temp = temp + 2;
+            }
+    
+            shuffledCards[temp] = values[mid];
         }
-    } else {
-        for (int i = 0; i < mid; i++) {
-            shuffledCards[temp] = values[i];
-            shuffledCards[temp + 1] = values[i + mid + 1]; 
-            temp = temp + 2;
-        }
-        
-        shuffledCards[temp] = values[mid];
+    
+        return shuffledCards;
     }
-
-    return shuffledCards;
-}
+    
+    
 
     /**
      * Apply an "efficient selection shuffle" to the argument. The selection
