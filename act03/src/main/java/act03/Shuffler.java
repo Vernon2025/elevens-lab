@@ -19,29 +19,30 @@ public class Shuffler {
      * @return the shuffled array
      */
     public static int[] perfectShuffle(int[] values) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-        double numCards = values.length;
-        int cards = values.length;
-        int[] shuffledCards = new int[cards];
-        int temp = 0;
-        int mid = (int) Math.ceil(numCards / 2);
+    double numCards = values.length;
+    int cards = values.length;
+    int[] shuffledCards = new int[cards];
+    int temp = 0;
+    int mid = (int) Math.ceil(numCards / 2);
 
-        if ((cards % 2) == 0) {
-            for (int i = 0; i <= mid-1; i++) {
-                shuffledCards[temp] = values[i];
-                shuffledCards[temp + 1] = values[i + mid];
-                temp = temp + 2;
-            }
-        } else {
-            for (int i = 0; i <= mid; i++) {
-                shuffledCards[temp] = values[i];
-                shuffledCards[temp + 1] = values[i + mid];
-                temp = temp + 2;
-            }
+    if ((cards % 2) == 0) {
+        for (int i = 0; i < mid; i++) {
+            shuffledCards[temp] = values[i];
+            shuffledCards[temp + 1] = values[i + mid];
+            temp = temp + 2;
         }
-
-        return shuffledCards;
+    } else {
+        for (int i = 0; i < mid; i++) {
+            shuffledCards[temp] = values[i];
+            shuffledCards[temp + 1] = values[i + mid + 1]; 
+            temp = temp + 2;
+        }
+        
+        shuffledCards[temp] = values[mid];
     }
+
+    return shuffledCards;
+}
 
     /**
      * Apply an "efficient selection shuffle" to the argument. The selection
@@ -57,7 +58,15 @@ public class Shuffler {
      * @return the shuffled array
      */
     public static int[] selectionShuffle(int[] values) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-        return null;
+        Random rand = new Random();
+
+        for (int i = values.length - 1; i > 0; i--) {
+            int randIndex = rand.nextInt(i + 1);
+            int temp = values[i];
+            values[i] = values[randIndex];
+            values[randIndex] = temp;
+        }
+
+        return values;
     }
 }
